@@ -9,13 +9,17 @@ const User = () => {
     const {id} = useParams()
 
   useEffect(() => {
-    axios.get(`/api/help/${id}`).then((response) => setData(response.data));
-    console.log(data)
-  }, [id,data]);
+    axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`)
+    .then((response)=>{
+        console.log(response.data);
+        setData(response.data)
+    })
+  }, [id]);
     
   return (
     <div>
       <h2>this is user page</h2>
+      <h1>{data.title}</h1>
     </div>
   )
 }

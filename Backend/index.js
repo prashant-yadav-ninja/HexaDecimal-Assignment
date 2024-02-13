@@ -1,9 +1,11 @@
-import express, { response } from "express"
+import express, { response, urlencoded } from "express"
 import axios from "axios"
 
 const port = 5100
 
 const app = express()
+
+app.use(express.urlencoded({limit: "16kb",extended:true}));
 
 
 app.get('/api/show',(req,res)=>{
